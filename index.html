@@ -10,10 +10,14 @@
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="bg"></div>
+    <div
+      id="bg"
+      class="bg-[url(./ai-art-space-nebula-2226602-wallhere.com.jpg)] bg-cover bg-no-repeat bg-center w-full h-full absolute transition-all duration-[0.6s] ease-[ease-in-out];"
+    ></div>
     <div id="pomodoro">
       <div id="pomodoro-overlay">
         <img src="Ripple@1x-1.0s-200px-200px.gif" alt="Loading..." />
@@ -21,7 +25,42 @@
       <span class="btn-icon" id="toggle-settings">
         <i class="fa-solid fa-gear"></i>
       </span>
-      <div id="timer-progress"></div>
+      <div id="timer-progress">
+        <svg class="circle-timer" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" class="circle-background" />
+          <circle cx="50" cy="50" r="45" class="circle-progress" />
+          <text
+            id="timer-time"
+            x="50"
+            y="50"
+            text-anchor="middle"
+            dy=".3em"
+            font-size="18"
+          >
+            00:00
+          </text>
+          <text
+            id="timer-pause"
+            x="50"
+            y="68"
+            text-anchor="middle"
+            dy=".3em"
+            font-size="7"
+          >
+            Paused
+          </text>
+          <text
+            id="timer-rest"
+            x="50"
+            y="68"
+            text-anchor="middle"
+            dy=".3em"
+            font-size="7"
+          >
+            Rest
+          </text>
+        </svg>
+      </div>
       <div id="timer-sessions"></div>
       <div id="timer-functions">
         <div id="timer-settings"></div>

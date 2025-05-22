@@ -26,7 +26,7 @@ body {
   height: 100%;
 }
 
-#bg {
+/* #bg {
   background-image: url(./ai-art-space-nebula-2226602-wallhere.com.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -35,7 +35,7 @@ body {
   height: 100%;
   position: absolute;
   transition: all 0.6s ease-in-out;
-}
+} */
 
 #pomodoro {
   position: relative;
@@ -94,4 +94,42 @@ body.page-loaded #pomodoro-overlay {
   top: 20px;
   right: 20px;
   height: 50px;
+}
+
+#timer-progress {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.circle-timer {
+  width: 270px;
+  height: 270px;
+}
+
+.circle-background {
+  stroke: #fff;
+  stroke-width: 7;
+  fill: none;
+}
+
+.circle-progress {
+  stroke: #fd5252;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  fill: none;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+}
+
+#timer-time {
+  fill: #5c5c5c;
+}
+
+#timer-rest,
+#timer-pause {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  fill: #5c5c5cd1;
 }
