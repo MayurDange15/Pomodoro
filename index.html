@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Blob -->
+    <div class="position-fixed top-0 start-0 w-100 h-100 animate-moveShape">
+      <div class="blob"></div>
+    </div>
+
+    <!-- Toggle Button -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
+        />
+      </symbol>
+      <symbol id="moon-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
+        />
+      </symbol>
+    </svg>
+    <button
+      id="theme-toggle"
+      type="button"
+      class="btn btn-outline-secondary position-fixed top-0 end-0 m-3 d-flex align-items-center"
+      aria-label="Toggle theme"
+    >
+      <svg
+        id="theme-icon"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi"
+      >
+        <use href="#sun-fill" />
+      </svg>
+    </button>
+
+    <!-- Header and Modal -->
+    <div class="flex items-center gap-2 p-3">
+      <h1 class="text-3xl font-bold">
+        Pomodoro Timer
+        <sup
+          ><span
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            class="btn-link"
+            style="cursor: pointer"
+            >?</span
+          ></sup
+        >
+      </h1>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Pomodoro Timer App
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            The Pomodoro Technique is a time management method that involves
+            breaking work into intervals called "pomodoros".
+            <br />
+            <br />Here are the steps:
+            <ul type="square">
+              <li>Choose a task.</li>
+              <li>Set a timer for 25 minutes (one Pomodoro).</li>
+              <li>Work on the task with full concentration.</li>
+              <li>Take a 5-minute break after each Pomodoro.</li>
+              <li>
+                After completing four Pomodoros, take a longer break of 15-30
+                minutes.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timer Buttons -->
+    <div
+      class="timer-buttons d-flex flex-column flex-sm-row align-items-center justify-content-center gap-4"
+    >
+      <button class="timer-btn pomodoro active" data-time="1500">
+        Pomodoro
+      </button>
+      <button class="timer-btn short-break" data-time="300">Short Break</button>
+      <button class="timer-btn long-break" data-time="900">Long Break</button>
+    </div>
+
+    <!-- Countdown Circle -->
+    <div class="circle position-relative rounded-circle ratio ratio-1x1">
+      <div class="inner-circle position-absolute rounded-circle">
+        <div
+          class="countdown position-absolute rounded-circle m-auto d-flex flex-column align-items-center justify-content-center"
+        >
+          <h1 class="z-5 fs-h1-4rem text-light"></h1>
+          <p
+            class="play-pause fs-p-2rem text-light mt-3"
+            style="cursor: pointer"
+          ></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- === [ADDED: Flute Background Audio Control Button] === -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol id="volume-mute-fill" viewBox="0 0 16 16">
+        <path
+          d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"
+        />
+      </symbol>
+      <symbol id="volume-up-fill" viewBox="0 0 16 16">
+        <path
+          d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"
+        />
+        <path
+          d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"
+        />
+        <path
+          d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"
+        />
+      </symbol>
+    </svg>
+    <button
+      type="button"
+      id="audio-toggle"
+      class="btn btn-outline-secondary position-fixed bottom-0 end-0 m-3 d-flex align-items-center"
+      aria-label="Toggle audio"
+    >
+      <svg
+        id="audio-icon"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi"
+      >
+        <use xlink:href="#volume-up-fill" />
+      </svg>
+    </button>
+
+    <!-- === [ADDED: Flute Audio Element] === -->
+    <!-- <audio id="bg-audio" src="./wsm.mp3" loop></audio> -->
+
+    <!-- Footer -->
+    <footer class="position-fixed bottom-0 end-1 m-3">
+      Made with ❤️ by Mayur
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>
